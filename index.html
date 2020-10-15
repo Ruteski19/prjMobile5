@@ -4,11 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Voto</title>
 </head>
 <body>
-    <h1>
-        Segundo Projeto
-    </h1>
+    <h1>Voto</h1>
+    <hr>
+    
+    <form method="POST">
+        
+        Nome do Eleitor:
+        <br>
+        <input type="text" name="txtnome" > <br>
+        <br>
+
+        Idade:
+        <br>
+        <input type="text" name="txtidade"> <br>
+        <br>
+    
+       
+        
+        <input type="submit" name="btncalcular" value="Calcular" >
+        
+    </form>
+
+    <?php
+    
+        if ($_POST) {
+        
+            //Recebe dados do formulário
+            $nome=$_POST['txtnome'];
+            $idade=$_POST['txtidade'];
+            
+                     
+            if ($idade < 16) {
+                
+               echo "<br> <hr> $nome, $idade anos, Proibido Votar!";
+
+            } else if ($idade >= 16 && $idade<=17){
+
+                echo "<br> <hr> $nome, $idade anos, Voto opcional!";
+
+            } else {
+
+                echo "<br> <hr> $nome, $idade anos, Voto obrigatório!";
+
+            }
+
+            
+        
+        }
+    ?>
+
 </body>
 </html>
